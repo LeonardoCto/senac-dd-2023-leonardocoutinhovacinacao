@@ -1,18 +1,20 @@
 package model.VO;
 
+import java.time.LocalDateTime;
+
 public class Pessoa {
 		private Integer idPessoa;
 		private Integer id;
 		private String nome;
-		private String dataNascimento;
-		private String sexo;
 		private String cpf;
+		private LocalDateTime dataNascimento;
+		private String sexo;
 
 		public Pessoa() {
 
 		}
 
-		public Pessoa(String nome, String dataNascimento, String sexo, String cpf) {
+		public Pessoa(String nome,String cpf, LocalDateTime dataNascimento, String sexo) {
 			super();
 			this.nome = nome;
 			this.dataNascimento = dataNascimento;
@@ -20,7 +22,7 @@ public class Pessoa {
 			this.cpf = cpf;
 		}
 
-		public Pessoa(Integer idPessoa, Integer id, String nome, String dataNascimento, String sexo, String cpf) {
+		public Pessoa(Integer idPessoa, Integer id, String nome,String cpf, LocalDateTime dataNascimento, String sexo) {
 			super();
 			this.idPessoa = idPessoa;
 			this.id = id;
@@ -54,11 +56,11 @@ public class Pessoa {
 			this.nome = nome;
 		}
 
-		public String getDataNascimento() {
+		public LocalDateTime getDataNascimento() {
 			return dataNascimento;
 		}
 
-		public void setDataNascimento(String dataNascimento) {
+		public void setDataNascimento(LocalDateTime dataNascimento) {
 			this.dataNascimento = dataNascimento;
 		}
 

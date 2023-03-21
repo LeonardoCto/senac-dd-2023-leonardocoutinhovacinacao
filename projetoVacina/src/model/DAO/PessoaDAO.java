@@ -19,7 +19,7 @@ public class PessoaDAO {
 		try {
 			query.setInt(1, novaPessoa.getIdPessoa());
 			query.setString(2, novaPessoa.getNome());
-			query.setString(3, novaPessoa.getDataNascimento());
+			query.setObject(3, novaPessoa.getDataNascimento());
 			query.setString(4, novaPessoa.getSexo());
 			query.setString(5, novaPessoa.getCpf());
 			query.execute();	

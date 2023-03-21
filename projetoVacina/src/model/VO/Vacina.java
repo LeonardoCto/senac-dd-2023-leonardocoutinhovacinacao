@@ -1,23 +1,33 @@
 package model.VO;
 
 import java.sql.Date;
+import java.time.LocalDateTime;
 
 public class Vacina {
 
 	private int idVacina;
 	private String paisDeOrigem;
 	private int estagioPesquisa;
-	private Date dataInicioPesquisa;
+	private LocalDateTime dataInicioPesquisa;
 	private String pesquisadorResposavel;
 
 	public Vacina() {
 
 	}
 
-	public Vacina(int idVacina, String paisDeOrigem, int estagioPesquisa, Date dataInicioPesquisa,
+	public Vacina(int idVacina, String paisDeOrigem, int estagioPesquisa, LocalDateTime dataInicioPesquisa,
 			String pesquisadorResposavel) {
 		super();
 		this.idVacina = idVacina;
+		this.paisDeOrigem = paisDeOrigem;
+		this.estagioPesquisa = estagioPesquisa;
+		this.dataInicioPesquisa = dataInicioPesquisa;
+		this.pesquisadorResposavel = pesquisadorResposavel;
+	}
+
+	public Vacina(String paisDeOrigem, int estagioPesquisa, LocalDateTime dataInicioPesquisa,
+			String pesquisadorResposavel) {
+		super();
 		this.paisDeOrigem = paisDeOrigem;
 		this.estagioPesquisa = estagioPesquisa;
 		this.dataInicioPesquisa = dataInicioPesquisa;
@@ -48,11 +58,11 @@ public class Vacina {
 		this.estagioPesquisa = estagioPesquisa;
 	}
 
-	public Date getDataInicioPesquisa() {
+	public LocalDateTime getDataInicioPesquisa() {
 		return dataInicioPesquisa;
 	}
 
-	public void setDataInicioPesquisa(Date dataInicioPesquisa) {
+	public void setDataInicioPesquisa(LocalDateTime dataInicioPesquisa) {
 		this.dataInicioPesquisa = dataInicioPesquisa;
 	}
 
