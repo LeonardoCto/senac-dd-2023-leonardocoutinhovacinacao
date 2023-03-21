@@ -3,6 +3,7 @@ package model.DAO;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -24,7 +25,7 @@ public class Banco {
 			conn = DriverManager.getConnection(CONEXAO, USER, PASSWORD);
 			return conn;
 		} catch (ClassNotFoundException e) {
-			System.out.println("Classe do Driver n�o foi encontrada.");
+			System.out.println("Classe do Driver não foi encontrada.");
 			System.out.println("Erro: " + e.getMessage());
 			return null;
 		} catch (SQLException e) {
@@ -40,7 +41,7 @@ public class Banco {
 				conn.close();
 			}
 		} catch (SQLException e) {
-			System.out.println("Problema no fechamento da conex�o.");
+			System.out.println("Problema no fechamento da conexão.");
 			System.out.println("Erro: " + e.getMessage());
 		}
 	}
@@ -88,5 +89,26 @@ public class Banco {
 			return null;
 		}
 	}
+	public static void closePreparedStatement(Statement stmt) {
+		try {
+			if (stmt != null) {
+				stmt.close();
+			}
+		} catch (SQLException e) {
+			System.out.println("Problema no fechamento do PreparedStatement.");
+			System.out.println("Erro: " + e.getMessage());
+		}
+	}
 
+	public static void closeResultSet(ResultSet result) {
+		try {
+			if (result != null) {
+				result.close();
+			}
+		} catch (SQLException e) {
+			System.out.println("Problema no fechamento do ResultSet");
+			System.out.println("Erro: " + e.getMessage());
+		}
+	}
 }
+

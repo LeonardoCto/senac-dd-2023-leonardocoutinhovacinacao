@@ -1,26 +1,27 @@
 package model.VO;
 
-import java.time.LocalDateTime;
+import java.sql.Date;
 
 public class Vacina {
+
 	private int idVacina;
 	private String paisDeOrigem;
-	private String estagioPesquisa;
-	private LocalDateTime dataInicioPesquisa;
-	private Pesquisador responsavel;
+	private int estagioPesquisa;
+	private Date dataInicioPesquisa;
+	private String pesquisadorResposavel;
 
 	public Vacina() {
 
 	}
 
-	public Vacina(int idVacina, String paisDeOrigem, String estagioPesquisa, LocalDateTime dataInicioPesquisa,
-			Pesquisador responsavel) {
+	public Vacina(int idVacina, String paisDeOrigem, int estagioPesquisa, Date dataInicioPesquisa,
+			String pesquisadorResposavel) {
 		super();
 		this.idVacina = idVacina;
 		this.paisDeOrigem = paisDeOrigem;
 		this.estagioPesquisa = estagioPesquisa;
 		this.dataInicioPesquisa = dataInicioPesquisa;
-		this.responsavel = responsavel;
+		this.pesquisadorResposavel = pesquisadorResposavel;
 	}
 
 	public int getIdVacina() {
@@ -39,28 +40,28 @@ public class Vacina {
 		this.paisDeOrigem = paisDeOrigem;
 	}
 
-	public String getEstagioPesquisa() {
+	public int getEstagioPesquisa() {
 		return estagioPesquisa;
 	}
 
-	public void setEstagioPesquisa(String estagioPesquisa) {
+	public void setEstagioPesquisa(int estagioPesquisa) {
 		this.estagioPesquisa = estagioPesquisa;
 	}
 
-	public LocalDateTime getDataInicioPesquisa() {
+	public Date getDataInicioPesquisa() {
 		return dataInicioPesquisa;
 	}
 
-	public void setDataInicioPesquisa(LocalDateTime dataInicioPesquisa) {
+	public void setDataInicioPesquisa(Date dataInicioPesquisa) {
 		this.dataInicioPesquisa = dataInicioPesquisa;
 	}
 
-	public Pesquisador getResponsavel() {
-		return responsavel;
+	public String getPesquisadorResposavel() {
+		return pesquisadorResposavel;
 	}
 
-	public void setResponsavel(Pesquisador responsavel) {
-		this.responsavel = responsavel;
+	public void setPesquisadorResposavel(String pesquisadorResposavel) {
+		this.pesquisadorResposavel = pesquisadorResposavel;
 	}
 
 }
