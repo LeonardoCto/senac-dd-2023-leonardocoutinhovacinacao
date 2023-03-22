@@ -74,7 +74,7 @@ public class Vacina {
 		this.pesquisadorResposavel = pesquisadorResposavel;
 	}
 	public void imprimir() {
-		System.out.printf("\n%3d  %-13s  %-20s  %-11s  %-25s  %-13s  %-24s  %-24s  %-10s  %-10s", 
+		System.out.printf("\n%3d  %-20s  %-20s  %-11s  %-25s ", 
 		this.getIdVacina(),
 		this.getEstagioPesquisa(),
 		this.getPaisDeOrigem(),
