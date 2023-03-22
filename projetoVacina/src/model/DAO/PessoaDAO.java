@@ -12,16 +12,17 @@ public class PessoaDAO {
 	public Pessoa cadastrarPessoa(Pessoa novaPessoa) {
 
 		Connection conexao = Banco.getConnection();
-		String sql = "INSERT INTO pessoa (nome, dataNascimento, sexo, cpf) "
-						+ " VALUES (?, ?, ?, ?)";
+		String sql = "INSERT INTO pessoa (idpessoa, nome, tipoPessoa, dataNascimento, sexo, cpf) "
+						+ " VALUES (?, ?, ?, ?, ?, ?)";
 
 		PreparedStatement query = Banco.getPreparedStatementWithPk(conexao, sql);
 		try {
 			query.setInt(1, novaPessoa.getIdPessoa());
 			query.setString(2, novaPessoa.getNome());
-			query.setObject(3, novaPessoa.getDataNascimento());
-			query.setString(4, novaPessoa.getSexo());
-			query.setString(5, novaPessoa.getCpf());
+			query.setInt(3, novaPessoa.getTipoPessoa().getValor());
+			query.setObject(4, novaPessoa.getDataNascimento());
+			query.setString(5, novaPessoa.getSexo());
+			query.setString(6, novaPessoa.getCpf());
 			query.execute();	
 
 			ResultSet resultado = query.getGeneratedKeys();

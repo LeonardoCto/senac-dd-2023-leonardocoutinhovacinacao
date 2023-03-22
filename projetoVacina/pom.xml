@@ -3,6 +3,25 @@
   <groupId>projetoVacina</groupId>
   <artifactId>projetoVacina</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  
+   <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+  
+  <dependencies>
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>5.1.38</version>
+    </dependency>
+    
+    <dependency>
+		<groupId>mysql</groupId>
+		<artifactId>mysql-connector-java</artifactId>
+		<version>8.0.17</version>
+	</dependency>
+  </dependencies>
+  
   <build>
     <sourceDirectory>src</sourceDirectory>
     <plugins>
@@ -16,3 +35,8 @@
     </plugins>
   </build>
 </project>
+  
+   
+
+ 
+

@@ -1,13 +1,13 @@
 package model.VO;
 
-import java.sql.Date;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Vacina {
 
 	private int idVacina;
+	private EstagioPesquisa estagioPesquisa;
 	private String paisDeOrigem;
-	private int estagioPesquisa;
 	private LocalDateTime dataInicioPesquisa;
 	private String pesquisadorResposavel;
 
@@ -15,21 +15,21 @@ public class Vacina {
 
 	}
 
-	public Vacina(int idVacina, String paisDeOrigem, int estagioPesquisa, LocalDateTime dataInicioPesquisa,
+	public Vacina(EstagioPesquisa estagioPesquisa, String paisDeOrigem, LocalDateTime dataInicioPesquisa,
 			String pesquisadorResposavel) {
 		super();
-		this.idVacina = idVacina;
-		this.paisDeOrigem = paisDeOrigem;
 		this.estagioPesquisa = estagioPesquisa;
+		this.paisDeOrigem = paisDeOrigem;
 		this.dataInicioPesquisa = dataInicioPesquisa;
 		this.pesquisadorResposavel = pesquisadorResposavel;
 	}
 
-	public Vacina(String paisDeOrigem, int estagioPesquisa, LocalDateTime dataInicioPesquisa,
+	public Vacina(int idVacina, EstagioPesquisa estagioPesquisa, String paisDeOrigem, LocalDateTime dataInicioPesquisa,
 			String pesquisadorResposavel) {
 		super();
-		this.paisDeOrigem = paisDeOrigem;
+		this.idVacina = idVacina;
 		this.estagioPesquisa = estagioPesquisa;
+		this.paisDeOrigem = paisDeOrigem;
 		this.dataInicioPesquisa = dataInicioPesquisa;
 		this.pesquisadorResposavel = pesquisadorResposavel;
 	}
@@ -42,20 +42,20 @@ public class Vacina {
 		this.idVacina = idVacina;
 	}
 
+	public EstagioPesquisa getEstagioPesquisa() {
+		return estagioPesquisa;
+	}
+
+	public void setEstagioPesquisa(EstagioPesquisa estagioPesquisa) {
+		this.estagioPesquisa = estagioPesquisa;
+	}
+
 	public String getPaisDeOrigem() {
 		return paisDeOrigem;
 	}
 
 	public void setPaisDeOrigem(String paisDeOrigem) {
 		this.paisDeOrigem = paisDeOrigem;
-	}
-
-	public int getEstagioPesquisa() {
-		return estagioPesquisa;
-	}
-
-	public void setEstagioPesquisa(int estagioPesquisa) {
-		this.estagioPesquisa = estagioPesquisa;
 	}
 
 	public LocalDateTime getDataInicioPesquisa() {
@@ -73,5 +73,21 @@ public class Vacina {
 	public void setPesquisadorResposavel(String pesquisadorResposavel) {
 		this.pesquisadorResposavel = pesquisadorResposavel;
 	}
+	public void imprimir() {
+		System.out.printf("\n%3d  %-13s  %-20s  %-11s  %-25s  %-13s  %-24s  %-24s  %-10s  %-10s", 
+		this.getIdVacina(),
+		this.getEstagioPesquisa(),
+		this.getPaisDeOrigem(),
+		this.validarData(this.getDataInicioPesquisa()),
+		this.getPesquisadorResposavel());
+	}
+	private String validarData(LocalDateTime data) {
+		String resultado = "";
+		if(data != null) {
+			resultado = data.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"));
+		}
+		return resultado;
+	}
 
 }
+

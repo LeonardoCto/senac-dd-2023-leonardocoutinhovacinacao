@@ -7,11 +7,11 @@ import model.VO.Vacina;
 public class Executavel {
 	public static void main(String[] args) {
 
-	Pessoa pessoa1 = new Pessoa("Leonardo Coutinho", "10066001919", "2020/10/10", "Masculino");
+	Pessoa pessoa1 = new Pessoa("Leonardo", 3, "10066001919" ," data", "Masculino");
 		PessoaDAO dbaDePessoas = new PessoaDAO();
 
 		dbaDePessoas.cadastrarPessoa(pessoa1);
 		
-		Vacina vacina1 = new Vacina("Brasil", 1 , 25/02/2023, "Vilmar");
+		Vacina vacina1 = new Vacina();
 	}
 }
