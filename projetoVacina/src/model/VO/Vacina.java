@@ -5,41 +5,44 @@ import java.time.format.DateTimeFormatter;
 
 public class Vacina {
 
-	private int idVacina;
+	private Integer id;
+	private String nome;
 	private EstagioPesquisa estagioPesquisa;
 	private String paisDeOrigem;
 	private LocalDateTime dataInicioPesquisa;
-	private String pesquisadorResposavel;
+	private Pessoa pesquisador;
 
 	public Vacina() {
 
 	}
 
-	public Vacina(EstagioPesquisa estagioPesquisa, String paisDeOrigem, LocalDateTime dataInicioPesquisa,
-			String pesquisadorResposavel) {
+	public Vacina(Integer id, String nome, EstagioPesquisa estagioPesquisa, String paisDeOrigem,
+			LocalDateTime dataInicioPesquisa, Pessoa pesquisador) {
 		super();
+		this.id = id;
+		this.nome = nome;
 		this.estagioPesquisa = estagioPesquisa;
 		this.paisDeOrigem = paisDeOrigem;
 		this.dataInicioPesquisa = dataInicioPesquisa;
-		this.pesquisadorResposavel = pesquisadorResposavel;
+		this.pesquisador = pesquisador;
 	}
 
-	public Vacina(int idVacina, EstagioPesquisa estagioPesquisa, String paisDeOrigem, LocalDateTime dataInicioPesquisa,
-			String pesquisadorResposavel) {
-		super();
-		this.idVacina = idVacina;
-		this.estagioPesquisa = estagioPesquisa;
-		this.paisDeOrigem = paisDeOrigem;
-		this.dataInicioPesquisa = dataInicioPesquisa;
-		this.pesquisadorResposavel = pesquisadorResposavel;
+	
+
+	public Integer getId() {
+		return id;
 	}
 
-	public int getIdVacina() {
-		return idVacina;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
-	public void setIdVacina(int idVacina) {
-		this.idVacina = idVacina;
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 	public EstagioPesquisa getEstagioPesquisa() {
@@ -66,28 +69,22 @@ public class Vacina {
 		this.dataInicioPesquisa = dataInicioPesquisa;
 	}
 
-	public String getPesquisadorResposavel() {
-		return pesquisadorResposavel;
+	public Pessoa getPesquisador() {
+		return pesquisador;
 	}
 
-	public void setPesquisadorResposavel(String pesquisadorResposavel) {
-		this.pesquisadorResposavel = pesquisadorResposavel;
+	public void setPesquisador(Pessoa pesquisador) {
+		this.pesquisador = pesquisador;
 	}
-	public void imprimir() {
-		System.out.printf("\n%3d  %-20s  %-20s  %-11s  %-25s ", 
-		this.getIdVacina(),
-		this.getEstagioPesquisa(),
-		this.getPaisDeOrigem(),
-		this.validarData(this.getDataInicioPesquisa()),
-		this.getPesquisadorResposavel());
+	
+	public String toString() {
+		return 	"\nID: " + this.getId()
+				+ "\nNome: " + this.getNome()
+				+ "\nPaís de origem: " + this.getPaisDeOrigem() 
+				+ "\nFase da vacina: " + this.getEstagioPesquisa() 
+				+ "\nData de início da pesquisa: " + this.getDataInicioPesquisa().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) 
+				+ "\nPesquisador: " + this.getPesquisador().getNome();
 	}
-	private String validarData(LocalDateTime data) {
-		String resultado = "";
-		if(data != null) {
-			resultado = data.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"));
-		}
-		return resultado;
-	}
-
 }
 
+	

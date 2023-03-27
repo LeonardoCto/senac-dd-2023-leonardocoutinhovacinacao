@@ -1,18 +1,20 @@
 package model.VO;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+import java.time.LocalDateTime;
 
 public class Pessoa {
-	private int idPessoa;
+	private Integer id;
 	private String nome;
 	private TipoPessoa tipoPessoa;
 	private String cpf;
-	private LocalDate dataNascimento;
-	private String sexo;
+	private LocalDateTime dataNascimento;
+	private char sexo;
 
 
-	public Pessoa(String nome, TipoPessoa tipoPessoa, String cpf, LocalDate dataNascimento, String sexo) {
+	public Pessoa() {
+		
+	}
+	public Pessoa(Integer id, String nome, TipoPessoa tipoPessoa, String cpf, LocalDateTime dataNascimento, char sexo) {
 		super();
 		this.nome = nome;
 		this.tipoPessoa = tipoPessoa;
@@ -21,23 +23,21 @@ public class Pessoa {
 		this.cpf = cpf;
 	}
 
-	public Pessoa(int idPessoa, String nome, TipoPessoa tipoPessoa, String cpf,
-			LocalDate dataNascimento, String sexo) {
+	public Pessoa(Integer id, String nome, String cpf,LocalDateTime dataNascimento, char sexo) {
 		super();
-		this.idPessoa = idPessoa;
+		this.id = id;
 		this.nome = nome;
-		this.tipoPessoa = tipoPessoa;
 		this.dataNascimento = dataNascimento;
 		this.sexo = sexo;
 		this.cpf = cpf;
 	}
 
-	public Integer getIdPessoa() {
-		return idPessoa;
+	public Integer getId() {
+		return id;
 	}
 
-	public void setIdPessoa(Integer idPessoa) {
-		this.idPessoa = idPessoa;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 
@@ -57,19 +57,19 @@ public class Pessoa {
 		this.tipoPessoa = tipoPessoa;
 	}
 
-	public LocalDate getDataNascimento() {
+	public LocalDateTime getDataNascimento() {
 		return dataNascimento;
 	}
 
-	public void setDataNascimento(LocalDate dataNascimento) {
+	public void setDataNascimento(LocalDateTime dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
 
-	public String getSexo() {
+	public char getSexo() {
 		return sexo;
 	}
 
-	public void setSexo(String sexo) {
+	public void setSexo(char sexo) {
 		this.sexo = sexo;
 	}
 
@@ -81,21 +81,7 @@ public class Pessoa {
 		this.cpf = cpf;
 	}
 	
-	public void imprimir() {
-		System.out.printf("\n%3d  %-20s  %-20s  %-11s  %-25s  %-13s  %-10s ", 
-		this.getIdPessoa(),
-		this.getNome(),
-		this.getTipoPessoa(),
-		this.getCpf(),
-		this.validarData(this.getDataNascimento()),
-		this.getSexo());
-	}
-	private String validarData(LocalDate data) {
-		String resultado = "";
-		if(data != null) {
-			resultado = data.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"));
-		}
-		return resultado;
+
 	}
 
-}
+
