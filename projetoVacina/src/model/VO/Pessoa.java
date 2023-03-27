@@ -1,6 +1,6 @@
 package model.VO;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public class Pessoa {
@@ -9,11 +9,11 @@ public class Pessoa {
 	private String nome;
 	private TipoPessoa tipoPessoa;
 	private String cpf;
-	private LocalDateTime dataNascimento;
+	private LocalDate dataNascimento;
 	private String sexo;
 
 
-	public Pessoa(String nome, TipoPessoa tipoPessoa, String cpf, LocalDateTime dataNascimento, String sexo) {
+	public Pessoa(String nome, TipoPessoa tipoPessoa, String cpf, LocalDate dataNascimento, String sexo) {
 		super();
 		this.nome = nome;
 		this.tipoPessoa = tipoPessoa;
@@ -23,7 +23,7 @@ public class Pessoa {
 	}
 
 	public Pessoa(Integer idPessoa, Integer id, String nome, TipoPessoa tipoPessoa, String cpf,
-			LocalDateTime dataNascimento, String sexo) {
+			LocalDate dataNascimento, String sexo) {
 		super();
 		this.idPessoa = idPessoa;
 		this.id = id;
@@ -66,11 +66,11 @@ public class Pessoa {
 		this.tipoPessoa = tipoPessoa;
 	}
 
-	public LocalDateTime getDataNascimento() {
+	public LocalDate getDataNascimento() {
 		return dataNascimento;
 	}
 
-	public void setDataNascimento(LocalDateTime dataNascimento) {
+	public void setDataNascimento(LocalDate dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
 
@@ -99,7 +99,7 @@ public class Pessoa {
 		this.validarData(this.getDataNascimento()),
 		this.getSexo());
 	}
-	private String validarData(LocalDateTime data) {
+	private String validarData(LocalDate data) {
 		String resultado = "";
 		if(data != null) {
 			resultado = data.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"));
