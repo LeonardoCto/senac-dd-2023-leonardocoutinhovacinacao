@@ -4,8 +4,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public class Pessoa {
-	private Integer idPessoa;
-	private Integer id;
+	private int idPessoa;
 	private String nome;
 	private TipoPessoa tipoPessoa;
 	private String cpf;
@@ -22,11 +21,10 @@ public class Pessoa {
 		this.cpf = cpf;
 	}
 
-	public Pessoa(Integer idPessoa, Integer id, String nome, TipoPessoa tipoPessoa, String cpf,
+	public Pessoa(int idPessoa, String nome, TipoPessoa tipoPessoa, String cpf,
 			LocalDate dataNascimento, String sexo) {
 		super();
 		this.idPessoa = idPessoa;
-		this.id = id;
 		this.nome = nome;
 		this.tipoPessoa = tipoPessoa;
 		this.dataNascimento = dataNascimento;
@@ -42,13 +40,6 @@ public class Pessoa {
 		this.idPessoa = idPessoa;
 	}
 
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
 
 	public String getNome() {
 		return nome;

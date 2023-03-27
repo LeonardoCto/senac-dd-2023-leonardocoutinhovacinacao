@@ -12,7 +12,7 @@ public class PessoaDAO {
 	public Pessoa cadastrarPessoa(Pessoa novaPessoa) {
 
 		Connection conexao = Banco.getConnection();
-		String sql = "INSERT INTO pessoa (idpessoa, nome, tipoPessoa, dataNascimento, sexo, cpf) "
+		String sql = "INSERT INTO pessoa (idPessoa, nome, tipoPessoa, dataNascimento, sexo, cpf) "
 						+ " VALUES (?, ?, ?, ?, ?, ?)";
 
 		PreparedStatement query = Banco.getPreparedStatementWithPk(conexao, sql);
@@ -27,10 +27,11 @@ public class PessoaDAO {
 
 			ResultSet resultado = query.getGeneratedKeys();
 			if (resultado.next()) {
-				novaPessoa.setId(resultado.getInt(1));
+				novaPessoa.setIdPessoa(resultado.getInt(1));
+				System.out.println("Pessoa cadastrada com sucesso!");
 			}
 		} catch (SQLException e) {
-			System.out.println("Erro ao executar a query do mÃ©todo cadastrarPessoa!");
+			System.out.println("Erro ao executar a query do método cadastrar Pessoa!");
 			System.out.println("Erro: " + e.getMessage());
 		} finally {
 			Banco.closeStatement(query);
