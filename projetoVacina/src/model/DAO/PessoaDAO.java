@@ -16,17 +16,16 @@ public class PessoaDAO {
 	public Pessoa inserir(Pessoa novaPessoa) {
 
 		Connection conexao = Banco.getConnection();
-		String sql = "INSERT INTO pessoa (idPessoa, nome, tipoPessoa, dataNascimento, sexo, cpf) "
-				+ " VALUES (?, ?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO pessoa (nome, DT_NASCIMENTO, sexo, cpf, TIPO ) "
+				+ " VALUES (?, ?, ?, ?, ?)";
 
 		PreparedStatement query = Banco.getPreparedStatementWithPk(conexao, sql);
 		try {
-			query.setInt(1, novaPessoa.getId());
-			query.setString(2, novaPessoa.getNome());
-			query.setInt(3, novaPessoa.getTipoPessoa().getValor());
-			query.setObject(4, novaPessoa.getDataNascimento());
-			query.setString(5, String.valueOf(novaPessoa.getSexo()));
-			query.setString(6, novaPessoa.getCpf());
+			query.setString(1, novaPessoa.getNome());
+			query.setObject(2, novaPessoa.getDataNascimento());
+			query.setString(3, String.valueOf(novaPessoa.getSexo()));
+			query.setString(4, novaPessoa.getCpf());
+			query.setInt(5, novaPessoa.getTipoPessoa().getValor());
 			query.execute();
 
 			ResultSet resultado = query.getGeneratedKeys();
@@ -35,7 +34,7 @@ public class PessoaDAO {
 				System.out.println("Pessoa cadastrada com sucesso!");
 			}
 		} catch (SQLException e) {
-			System.out.println("Erro ao executar a query do m�todo cadastrar Pessoa!");
+			System.out.println("Erro ao executar a query do método cadastrar Pessoa!");
 			System.out.println("Erro: " + e.getMessage());
 		} finally {
 			Banco.closeStatement(query);
