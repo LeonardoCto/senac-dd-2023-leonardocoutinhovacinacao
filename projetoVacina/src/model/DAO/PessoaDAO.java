@@ -48,15 +48,15 @@ public class PessoaDAO {
 		boolean atualizou = false;
 		Connection conexao = Banco.getConnection();
 		String sql = " UPDATE PESSOA "
-				+ " SET IDTIPOPUBLICOVACINA = ?, NOME = ?, CPF = ?, DATA_NASCIMENTO = ?, SEXO = ? "
+				+ " SET NOME = ?, DATA_NASCIMENTO = ?, SEXO = ?, CPF = ?, IDTIPOPESSOA = ? "
 				+ "	WHERE IDPESSOA = ? ";
 		PreparedStatement query = Banco.getPreparedStatement(conexao, sql);
 		try {
-			query.setInt(1, pessoaEditada.getTipoPessoa().getValor());
-			query.setString(2, pessoaEditada.getNome());
-			query.setString(3, pessoaEditada.getCpf());
-			query.setObject(4, pessoaEditada.getDataNascimento());
-			query.setString(5, String.valueOf(pessoaEditada.getSexo()));
+			query.setString(1, pessoaEditada.getNome());
+			query.setObject(2, pessoaEditada.getDataNascimento());
+			query.setString(3, String.valueOf(pessoaEditada.getSexo()));
+			query.setString(4, pessoaEditada.getCpf());
+			query.setInt(5, pessoaEditada.getTipoPessoa().getValor());
 			query.setInt(6, pessoaEditada.getId());
 
 			int qtdeLinhasAtualizadas = query.executeUpdate();
@@ -136,7 +136,7 @@ public class PessoaDAO {
 	private Pessoa converterResultSetParaEntidade(ResultSet resultado) throws SQLException {
 		Pessoa pessoaConsultada = new Pessoa();
 		pessoaConsultada.setId(resultado.getInt("idpessoa"));
-		pessoaConsultada.setTipoPessoa(TipoPessoa.getTipoPessoaPorValor(resultado.getInt("idtipopublicovacina")));
+		pessoaConsultada.setTipoPessoa(TipoPessoa.getTipoPessoaPorValor(resultado.getInt("idtipopessoa")));
 		pessoaConsultada.setNome(resultado.getString("nome"));
 		pessoaConsultada.setCpf(resultado.getString("cpf"));
 		pessoaConsultada.setDataNascimento(LocalDateTime.parse(resultado.getString("data_nascimento"),

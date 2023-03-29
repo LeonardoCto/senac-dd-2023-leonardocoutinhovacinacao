@@ -16,7 +16,7 @@ public class Vacina {
 
 	}
 
-	public Vacina(Integer id, String nome, EstagioPesquisa estagioPesquisa, String paisDeOrigem,
+	public Vacina(Integer id, String nome, String paisDeOrigem, EstagioPesquisa estagioPesquisa,
 			LocalDateTime dataInicioPesquisa, Pessoa pesquisador) {
 		super();
 		this.id = id;

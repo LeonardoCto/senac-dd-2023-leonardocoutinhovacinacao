@@ -18,7 +18,7 @@ public class VacinaDAO {
 	public Vacina inserir(Vacina novaVacina) {
 		// Conectar ao banco
 		Connection conexao = Banco.getConnection();
-		String sql = " INSERT INTO VACINA (NOME, PAIS_ORIGEM, IDTIPOFASEVACINA, DATA_INICIO_DA_PESQUISA, IDPESSOA) "
+		String sql = " INSERT INTO VACINA (NOME, PAIS_ORIGEM, IDESTAGIPESQUISA, DATA_INICIO_DA_PESQUISA, IDPESSOA) "
 				+ " VALUES (?,?,?,?,?) ";
 		PreparedStatement query = Banco.getPreparedStatementWithPk(conexao, sql);
 		// Executar o INSERT
@@ -49,7 +49,7 @@ public class VacinaDAO {
 		boolean atualizou = false;
 		Connection conexao = Banco.getConnection();
 		String sql = " UPDATE VACINA "
-				+ " SET NOME = ?, PAIS_ORIGEM = ?, IDTIPOFASEVACINA = ?, DATA_INICIO_DA_PESQUISA = ?, IDPESSOA = ? "
+				+ " SET NOME = ?, PAIS_ORIGEM = ?, IDESTAGIPESQUISA = ?, DATA_INICIO_DA_PESQUISA = ?, IDPESSOA = ? "
 				+ "	WHERE IDVACINA = ? ";
 		PreparedStatement query = Banco.getPreparedStatement(conexao, sql);
 		try {
